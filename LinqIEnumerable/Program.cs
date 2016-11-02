@@ -65,6 +65,16 @@ namespace LinqIEnumerable
                 Console.WriteLine("order by name of dev {0}",item.Name);
             }
 
+            //Query syntax
+            var query = from de in developers where de.Name.StartsWith("C") select de;
+            var query2 = from de in developers where de.Name.StartsWith("c") select de;
+
+            foreach (var item in query)
+            {
+                Console.WriteLine("the C one {0} is here",item.Name);
+                Console.WriteLine("this will not print due to no 'c' because casesensitive, Actully it print out cuz the no case sensitive: {0} is here", item.Name);
+            }
+
         }
 
         //private static bool NameStartWithC(Employees employee)
