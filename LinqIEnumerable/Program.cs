@@ -24,11 +24,21 @@ namespace LinqIEnumerable
             Console.WriteLine("My own Linq count (custom Linq count {0} developers)",developers.MyCount());
             Console.WriteLine("LinQ count {0} saleman",sales.Count());
 
-            IEnumerator<Employees> enumerator = developers.GetEnumerator();
+            IEnumerator<Employees> enumerator = developers.GetEnumerator(); // low level code
             while (enumerator.MoveNext())
             {
                 Console.WriteLine(enumerator.Current.Name);
             }
+
+            foreach ( var em in developers.Where(e => e.Name.StartsWith("C")))
+            {
+                Console.WriteLine("Developer Name start with C is {0}", em.Name);
+            }
         }
+
+        //private static bool NameStartWithC(Employees employee)
+        //{
+        //    return employee.Name.StartsWith("C");
+        //}
     }
 }
