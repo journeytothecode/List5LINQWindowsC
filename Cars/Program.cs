@@ -12,10 +12,12 @@ namespace Cars
         static void Main(string[] args)
         {
             var cars = ProcessFile("fuel.csv");
+            var query = cars.OrderByDescending(c => c.Combined)
+                .ThenBy(c => c.Name);
 
-            foreach (var item in cars)
+            foreach (var item in query.Take(10))
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine($"{item.Name,-20} : {item.Combined}");
             }
         }
 
