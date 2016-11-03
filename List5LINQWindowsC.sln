@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List5LINQWindowsC", "List5L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqIEnumerable", "LinqIEnumerable\LinqIEnumerable.csproj", "{1F71FFCE-C782-4944-A57C-2224393B30EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeferedExecultion", "DeferedExecultion\DeferedExecultion.csproj", "{751CD6FF-4F11-4E29-8066-48B83208431F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1F71FFCE-C782-4944-A57C-2224393B30EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F71FFCE-C782-4944-A57C-2224393B30EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F71FFCE-C782-4944-A57C-2224393B30EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751CD6FF-4F11-4E29-8066-48B83208431F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751CD6FF-4F11-4E29-8066-48B83208431F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751CD6FF-4F11-4E29-8066-48B83208431F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751CD6FF-4F11-4E29-8066-48B83208431F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
