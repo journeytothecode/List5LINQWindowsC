@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    public class car
+    public class Car
     {
         public int Year { get; set; }
         public string Manufacturer { get; set; }
@@ -17,12 +17,12 @@ namespace Cars
         public int Highway { get; set; }
         public int Combined { get; set; }
 
-        internal static car ParseFromCSV(string L) // take the line and turn in into a car object
+        internal static Car ParseFromCSV(string L) // take the line and turn in into a car object
         {
             //walk in the line and split that array of strings into string
             var columns = L.Split(','); // split the string by comma
 
-            return new car
+            return new Car
             {
                 Year = int.Parse(columns[0]),
                 Manufacturer = columns[1],
