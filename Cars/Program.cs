@@ -35,13 +35,16 @@ namespace Cars
             }
             //join Car's Manufacture with Manufacture's name
             var joinQ = cars.Join(manufactures,
-                c => c.Manufacturer,
-                m => m.Name, (c, m) => new
+                c => new { c.Manufacturer, c.Year},
+                m => new { Manufacturer = m.Name, m.Year},
+                (c, m) => new
                 {
                     m.Headquarter,
                     c.Name,
                     c.Manufacturer,
-                    c.Combined
+                    c.Combined,
+                    c.Year,
+
                 })
                 .OrderByDescending(c => c.Combined)
                 .ThenBy(c => c.Name.Length);
