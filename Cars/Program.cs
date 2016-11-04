@@ -33,6 +33,35 @@ namespace Cars
             {
                 Console.WriteLine($"{item.Name,-10} : {item.Headquarter,15} : {item.Year,4}");
             }
+            //join Car's Manufacture with Manufacture's name
+            var joinQ = cars.Join(manufactures,
+                c => c.Manufacturer,
+                m => m.Name, (c, m) => new
+                {
+                    m.Headquarter,
+                    c.Name,
+                    c.Manufacturer,
+                    c.Combined
+                })
+                .OrderByDescending(c => c.Combined)
+                .ThenBy(c => c.Name.Length);
+
+            foreach (var i in joinQ.Take(10))
+            {
+                Console.WriteLine($"after Join : {i.Headquarter,-20} : {i.Name,20} : {i.Manufacturer,30} : fuel effecsioncy Combined {i.Combined}");
+            }
+
+            //var joinQ2 = cars.Join(manufactures,c =>c.Manufacturer,m =>m.Name,(c,m));
+            var joiQ2 = cars.Join(manufactures, c => c.Manufacturer, m => m.Name, (c, m) => new
+            {
+                Car = c,
+                Manufacture = m
+            }). OrderByDescending(c => c.Car.Combined);
+
+            foreach (var i in joiQ2.Take(10))
+            {
+                Console.WriteLine($"{i.Car.Name,-20}: {i.Car.Combined,20} : {i.Manufacture.Name,20} : {i.Manufacture.Headquarter,20}");
+            }
         }//
 
         private static List<Manufacture> ProcessManufacture(string path)
