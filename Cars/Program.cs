@@ -51,7 +51,7 @@ namespace Cars
 
             foreach (var i in joinQ.Take(10))
             {
-                Console.WriteLine($"after Join : {i.Headquarter,-20} : {i.Name,20} : {i.Manufacturer,30} : fuel effecsioncy Combined {i.Combined}");
+                Console.WriteLine($"after Join : {i.Headquarter,-15} : {i.Name,15} : {i.Manufacturer,30} : {i.Year,4}: fuel effecsioncy Combined {i.Combined}");
             }
 
             //var joinQ2 = cars.Join(manufactures,c =>c.Manufacturer,m =>m.Name,(c,m));
@@ -65,6 +65,23 @@ namespace Cars
             {
                 Console.WriteLine($"{i.Car.Name,-20}: {i.Car.Combined,20} : {i.Manufacture.Name,20} : {i.Manufacture.Headquarter,20}");
             }
+
+            //group by
+
+            var qGroup = cars.GroupBy(c => c.Manufacturer.ToUpper())
+                .OrderByDescending(g => g.Key)
+                .ThenBy(c => c.OrderByDescending(e => e.Name));
+            // group by Manufacturer which combine is deceding order
+
+            foreach (var group in qGroup)
+            {
+                Console.WriteLine($" Group by Manufacturer {group.Key} : ");
+                foreach (var car in group.OrderByDescending( c=> c.Combined).Take(3))
+                {
+                    Console.WriteLine($"{car.Name,-15} : {car.Combined,20}");
+                }
+            }
+
         }//
 
         private static List<Manufacture> ProcessManufacture(string path)
